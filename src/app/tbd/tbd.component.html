@@ -1,0 +1,13 @@
+<clr-datagrid>
+    <clr-dg-column>User ID</clr-dg-column>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Creation date</clr-dg-column>
+    <clr-dg-column>Favorite color</clr-dg-column>
+  
+    <clr-dg-row *ngFor="let user of thedata">
+        <clr-dg-cell>{{user.Id}}</clr-dg-cell>
+        <clr-dg-cell>{{user.Name}}</clr-dg-cell>
+      
+        <clr-dg-cell>{{user.Color}}</clr-dg-cell>
+    </clr-dg-row> 
+  </clr-datagrid>
