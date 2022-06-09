@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <clr-datagrid>
+=======
+<clr-datagrid [(clrDgSelected)]="selected">
+>>>>>>> bb00b43c63752479acfafb4906757d7ad65f912a
   <clr-dg-column>User ID</clr-dg-column>
   <clr-dg-column>Libelle</clr-dg-column>
   <clr-dg-column>Descr</clr-dg-column>
@@ -24,7 +28,11 @@
     <clr-dg-pagination
       #pagination
       [clrDgPageSize]="10"
+<<<<<<< HEAD
     
+=======
+      [clrDgTotalItems]="dataClient?.total"
+>>>>>>> bb00b43c63752479acfafb4906757d7ad65f912a
     ></clr-dg-pagination>
   </clr-dg-footer>
 </clr-datagrid>
