@@ -1,1 +1,30 @@
-<p>job works!</p>
+<clr-datagrid>
+  <clr-dg-column>User ID</clr-dg-column>
+  <clr-dg-column>Libelle</clr-dg-column>
+  <clr-dg-column>Descr</clr-dg-column>
+  <clr-dg-column>Creation date</clr-dg-column>
+  <clr-dg-column>Edit</clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let job of Jobs" [clrDgItem]="job">
+    <clr-dg-cell>{{ job.IdTache }}</clr-dg-cell>
+    <clr-dg-cell>{{ job.IdCLient }}</clr-dg-cell>
+    <clr-dg-cell>{{ job.Libelle }}</clr-dg-cell>
+    <clr-dg-cell>{{ job.HeureInit }}</clr-dg-cell>
+    <clr-dg-cell>{{ job.Date | date: 'dd/MM/yyyy' }}</clr-dg-cell>
+
+    <clr-dg-cell>
+      <!-- <button (click)="edtJob(client.Id,client.Company,client.Descr)" class="btn btn-sm btn-success">Edit</button>
+        <button (click)="delJob(client.Id)" class="btn btn-sm btn-success">Del</button> -->
+    </clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-placeholder>We couldn't load any launches</clr-dg-placeholder>
+
+  <clr-dg-footer>
+    <clr-dg-pagination
+      #pagination
+      [clrDgPageSize]="10"
+    
+    ></clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>
