@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TbdComponent } from './tbd/tbd.component';
 import { ClientComponent } from './client/client.component';
+import { JobComponent } from './job/job.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TbdComponent,
-    ClientComponent
+    ClientComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,

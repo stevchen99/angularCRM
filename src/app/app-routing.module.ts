@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client/client.component';
+import { JobComponent } from './job/job.component';
 import { TbdComponent } from './tbd/tbd.component';
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'client',
     component: ClientComponent,
+  },
+  {
+    path: 'job',
+    component: JobComponent,
   },
 ];
 

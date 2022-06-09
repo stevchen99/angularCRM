@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "https://le-esp.fr/CRM/Update.php",
+        "secure": false,
+        "logLevel" : "debug"
+    }
+}

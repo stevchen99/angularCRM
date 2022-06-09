@@ -18,7 +18,7 @@
     </div>
 </clr-modal>
 
-
+<button (click)="crtClient()" class="btn btn-sm btn-success">Create</button>
 
 <clr-datagrid [(clrDgSelected)]="selected">
     <clr-dg-column>User ID</clr-dg-column>
@@ -27,13 +27,15 @@
     <clr-dg-column>Creation date</clr-dg-column>
     <clr-dg-column>Edit</clr-dg-column> 
     
-    <clr-dg-row *clrDgItems="let client of dataClient" [clrDgItem]="client">    
+    <clr-dg-row *clrDgItems="let client of dataclient2" [clrDgItem]="client">    
         <clr-dg-cell>{{client.Id}}</clr-dg-cell>
         <clr-dg-cell>{{client.Company}}</clr-dg-cell>
-        <clr-dg-cell>{{client.Descr}}</clr-dg-cell>
-        <clr-dg-cell>{{client.Date}}</clr-dg-cell>
+        <clr-dg-cell>{{client.Descr}}</clr-dg-cell> 
+        <clr-dg-cell>{{client.Date | date :'dd/MM/yyyy'}}</clr-dg-cell>
+
         <clr-dg-cell>
             <button (click)="edtClient(client.Id,client.Company,client.Descr)" class="btn btn-sm btn-success">Edit</button>
+            <button (click)="delClient(client.Id)" class="btn btn-sm btn-success">Del</button>
           </clr-dg-cell>      
     </clr-dg-row> 
 
