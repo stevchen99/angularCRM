@@ -6,11 +6,9 @@
         
           <clr-select-container>
             <label>Client</label>
-            <select clrSelect name="options" >
-              <!-- <option value="one">One</option>
-              <option value="two">Two</option>
-              <option value="three">Three</option> -->
-              <option *ngFor="let option of Clients" [ngValue]="option">
+            <select clrSelect name="options" [(ngModel)]="leJob.IdCLient">
+             
+              <option *ngFor="let option of Clients" [ngValue]="option"  >
                 {{option.Company}}
               </option>
             </select>
@@ -19,39 +17,42 @@
 
           <div class="form-group ">
               <label>Libelle</label>
-              <input type="text" name="libelle"    >
+              <input type="text" name="libelle"  [(ngModel)]="leJob.Libelle"  >
           </div>
           <div class="form-group ">  
               <label>Heure Initial</label>
-              <input type="text" name="heureInit"   >
+              <input type="text" name="heureInit"  [(ngModel)]="leJob.HeureInit" >
           </div>
       </section>
   </div>
   <div class="modal-footer">
-      <!-- <button type="button" class="btn btn-outline" (click)="CreEdtUser = false">Cancel</button>
-      <button type="button" class="btn btn-primary" (click)="createOuUpdateCompany()">Ok</button> -->
+      <button type="button" class="btn btn-outline" (click)="CreEdtJob = false">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="createOuUpdateJob()">Ok</button>
   </div>
 </clr-modal>
 
 <button (click)="crtJob()" class="btn btn-sm btn-success">Create</button>
 
 <clr-datagrid>
-  <clr-dg-column>User ID</clr-dg-column>
-  <clr-dg-column>Libelle</clr-dg-column>
+  <clr-dg-column>Job ID</clr-dg-column>
+  <clr-dg-column>Client</clr-dg-column>
   <clr-dg-column>Descr</clr-dg-column>
+  <clr-dg-column>Heure Initial</clr-dg-column>
+  <clr-dg-column>Heure Actuel</clr-dg-column>
   <clr-dg-column>Creation date</clr-dg-column>
   <clr-dg-column>Edit</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let job of Jobs" [clrDgItem]="job">
     <clr-dg-cell>{{ job.IdTache }}</clr-dg-cell>
-    <clr-dg-cell>{{ job.IdCLient }}</clr-dg-cell>
+    <clr-dg-cell>{{ job.Company }}</clr-dg-cell>
     <clr-dg-cell>{{ job.Libelle }}</clr-dg-cell>
     <clr-dg-cell>{{ job.HeureInit }}</clr-dg-cell>
-    <clr-dg-cell>{{ job.Date | date: 'dd/MM/yyyy' }}</clr-dg-cell>
+    <clr-dg-cell>{{ job.HeureActu }}</clr-dg-cell>
+    <clr-dg-cell>{{ job.DateCrea | date: 'dd/MM/yyyy' }}</clr-dg-cell>
 
     <clr-dg-cell>
-      <!-- <button (click)="edtJob(client.Id,client.Company,client.Descr)" class="btn btn-sm btn-success">Edit</button>
-        <button (click)="delJob(client.Id)" class="btn btn-sm btn-success">Del</button> -->
+      <!-- <button (click)="edtJob(client.Id,client.Company,client.Descr)" class="btn btn-sm btn-success">Edit</button> -->
+        <button (click)="delJob(job.IdTache)" class="btn btn-sm btn-success">Del</button>
     </clr-dg-cell>
   </clr-dg-row>
 

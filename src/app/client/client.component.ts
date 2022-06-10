@@ -13,8 +13,8 @@ import { TheCompany } from './the-company';
 
 export class ClientComponent implements OnInit {
   selected: any[] | undefined;
- public dataClient: any = [];
- dataclient2 : TheCompany[] = []
+  public dataClient: any = [];
+  dataclient2: TheCompany[] = []
   CreEdtUser = false;
   leCompany: TheCompany = { LeId: 0, Company: '', descr: '' };
 
@@ -23,24 +23,25 @@ export class ClientComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     this.getData2();
-  }  
-  
+  }
+
 
   getData() {
     const url = 'https://le-esp.fr/CRM/Read.php';
     this.http.get(url).subscribe((res) => {
-      this.dataClient = res;    
-     //8 console.log(this.dataClient);
+      this.dataClient = res;
+      //8 console.log(this.dataClient);
     });
   }
 
-  getData2(){
- this.apiService.getClient().subscribe((tempo : TheCompany[]) => {
-   this.dataclient2 = tempo;
-   console.log(tempo);
- })}
+  getData2() {
+    this.apiService.getClient().subscribe((tempo: TheCompany[]) => {
+      this.dataclient2 = tempo;
+      console.log(tempo);
+    })
+  }
 
-  
+
 
   public edtClient(Theid: number, TheCompany: string, TheDescr: string): void {
     this.leCompany.LeId = Theid;
@@ -52,13 +53,13 @@ export class ClientComponent implements OnInit {
   }
 
   public crtClient(): void {
-       this.CreEdtUser = true;
+    this.CreEdtUser = true;
   }
 
-  public delClient(thid : number):void{
-this.apiService.DeleteClient(thid).subscribe((res: TheCompany) => {
-  this.getData2()
-}      );
+  public delClient(thid: number): void {
+    this.apiService.DeleteClient(thid).subscribe((res: TheCompany) => {
+      this.getData2()
+    });
   }
 
   createOuUpdateCompany() {
@@ -69,9 +70,9 @@ this.apiService.DeleteClient(thid).subscribe((res: TheCompany) => {
         company: this.leCompany.Company,
         descr: this.leCompany.descr,
       };
-          this.apiService.CreateClient(leCompany2).subscribe((res: TheCompany) => {
+      this.apiService.CreateClient(leCompany2).subscribe((res: TheCompany) => {
         this.getData2()
-}      );
+      });
     } else {
       const url = 'https://le-esp.fr/CRM/Update.php';
       var UpdDon = {
@@ -79,15 +80,15 @@ this.apiService.DeleteClient(thid).subscribe((res: TheCompany) => {
         company: this.leCompany.Company,
         descr: this.leCompany.descr,
       };
-    
-     var leCompany2: TheCompany = { LeId: this.leCompany.LeId, Company: this.leCompany.Company, descr: this.leCompany.descr };
-     this.apiService.UpdateClient(leCompany2).subscribe((res: TheCompany) => {
-             this.getData2()
-     }     
-     );          
-    }    
+
+      var leCompany2: TheCompany = { LeId: this.leCompany.LeId, Company: this.leCompany.Company, descr: this.leCompany.descr };
+      this.apiService.UpdateClient(leCompany2).subscribe((res: TheCompany) => {
+        this.getData2()
+      }
+      );
+    }
     this.CreEdtUser = false;
-     }
+  }
 
 
 

@@ -1,6 +1,9 @@
+import { TheCompany } from "../client/the-company";
+
 export interface TheJob {
-    IdCLient: number;
+    IdCLient: TheCompany;   
     IdTache: number;
     Libelle: string;
-    HeureInit: number;   
+    HeureInit: number;
+    HeureActu: number;   
 }

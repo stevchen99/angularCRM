@@ -16,4 +16,8 @@ export class JobServService {
   CreateJob(job: TheJob): Observable<TheJob> {
     return this.httpClient.post<TheJob>(`${this.ApiPHP}/JobCreate.php`, job);
   }
+
+  DeleteJob(job : number) : Observable<TheJob>
+  {return this.httpClient.get<TheJob>(`${this.ApiPHP}/JobDelete.php?LeId=${job}`)}
+
 }
