@@ -7,6 +7,7 @@ import { TheCompany } from './the-company';
   providedIn: 'root'
 })
 export class ClientServService {
+  ApiPHP = 'https://le-esp.fr/CRM/';
    ApiRead = 'https://le-esp.fr/CRM/Read.php';
    ApiUpdate = 'https://le-esp.fr/CRM/Update.php';
    ApiCreate = 'https://le-esp.fr/CRM/Create.php';
@@ -15,6 +16,9 @@ export class ClientServService {
 
   getClient() : Observable<TheCompany[]>
   {return this.httpClient.get<TheCompany[]>(this.ApiRead)}
+
+  getClientListe() : Observable<TheCompany[]>
+  {return this.httpClient.get<TheCompany[]>(`${this.ApiPHP}/GetClient.php`)}
 
   UpdateClient(client : TheCompany) : Observable<TheCompany>
   {return this.httpClient.post<TheCompany>(this.ApiUpdate, client)}

@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { TbdComponent } from './tbd/tbd.component';
 import { ClientComponent } from './client/client.component';
 import { JobComponent } from './job/job.component';
+import { JobServService } from './job/job-serv.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { JobComponent } from './job/job.component';
     FormsModule,
     ClarityModule
   ],
-  providers: [],
+  providers: [JobServService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

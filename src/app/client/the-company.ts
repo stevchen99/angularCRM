@@ -2,6 +2,6 @@
 
 export interface TheCompany {
     LeId: number;
-    company: string;
+    Company: string;
     descr: string;
   }

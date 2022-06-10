@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientServService } from '../client/client-serv.service';
+import { TheCompany } from '../client/the-company';
 import { JobServService } from './job-serv.service';
 import { TheJob } from './the-job';
 
@@ -9,15 +11,30 @@ import { TheJob } from './the-job';
 })
 export class JobComponent implements OnInit {
   Jobs: TheJob[] = [];
+  Clients : TheCompany[] = []
+  CreEdtJob = false;
+  constructor(private jobService: JobServService,
+              private clientservice: ClientServService) {}
 
-  constructor(private apiService: JobServService) {}
+  ngOnInit(): void {
+    this.getClients()
+  }
 
-  ngOnInit(): void {}
+  getClients() {
+    this.clientservice.getClientListe().subscribe((tempo: TheCompany[]) => {
+      this.Clients = tempo;
+      console.log(tempo);
+    });
+  }
 
   getJobs() {
-    this.apiService.getJobs().subscribe((tempo: TheJob[]) => {
+    this.jobService.getJobs().subscribe((tempo: TheJob[]) => {
       this.Jobs = tempo;
       console.log(tempo);
     });
   }
+
+  public crtJob(): void {
+    this.CreEdtJob = true;
+}
 }

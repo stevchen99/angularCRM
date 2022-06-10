@@ -1,8 +1,41 @@
-<<<<<<< HEAD
+<clr-modal [(clrModalOpen)]="CreEdtJob">
+  <h3 class="modal-title">Edit Client</h3>
+  <div class="modal-body">
+      <section class="form-block">
+        <div class="form-group ">
+        
+          <clr-select-container>
+            <label>Client</label>
+            <select clrSelect name="options" >
+              <!-- <option value="one">One</option>
+              <option value="two">Two</option>
+              <option value="three">Three</option> -->
+              <option *ngFor="let option of Clients" [ngValue]="option">
+                {{option.Company}}
+              </option>
+            </select>
+          </clr-select-container>
+      </div>
+
+          <div class="form-group ">
+              <label>Libelle</label>
+              <input type="text" name="libelle"    >
+          </div>
+          <div class="form-group ">  
+              <label>Heure Initial</label>
+              <input type="text" name="heureInit"   >
+          </div>
+      </section>
+  </div>
+  <div class="modal-footer">
+      <!-- <button type="button" class="btn btn-outline" (click)="CreEdtUser = false">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="createOuUpdateCompany()">Ok</button> -->
+  </div>
+</clr-modal>
+
+<button (click)="crtJob()" class="btn btn-sm btn-success">Create</button>
+
 <clr-datagrid>
-=======
-<clr-datagrid [(clrDgSelected)]="selected">
->>>>>>> bb00b43c63752479acfafb4906757d7ad65f912a
   <clr-dg-column>User ID</clr-dg-column>
   <clr-dg-column>Libelle</clr-dg-column>
   <clr-dg-column>Descr</clr-dg-column>
@@ -27,12 +60,9 @@
   <clr-dg-footer>
     <clr-dg-pagination
       #pagination
-      [clrDgPageSize]="10"
-<<<<<<< HEAD
+      [clrDgPageSize]="10" 
+
     
-=======
-      [clrDgTotalItems]="dataClient?.total"
->>>>>>> bb00b43c63752479acfafb4906757d7ad65f912a
     ></clr-dg-pagination>
   </clr-dg-footer>
 </clr-datagrid>

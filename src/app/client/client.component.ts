@@ -16,7 +16,7 @@ export class ClientComponent implements OnInit {
  public dataClient: any = [];
  dataclient2 : TheCompany[] = []
   CreEdtUser = false;
-  leCompany: TheCompany = { LeId: 0, company: '', descr: '' };
+  leCompany: TheCompany = { LeId: 0, Company: '', descr: '' };
 
   constructor(private http: HttpClient, private apiService: ClientServService) { }
 
@@ -44,7 +44,7 @@ export class ClientComponent implements OnInit {
 
   public edtClient(Theid: number, TheCompany: string, TheDescr: string): void {
     this.leCompany.LeId = Theid;
-    this.leCompany.company = TheCompany;
+    this.leCompany.Company = TheCompany;
     this.leCompany.descr = TheDescr;
 
     this.CreEdtUser = true;
@@ -64,9 +64,9 @@ this.apiService.DeleteClient(thid).subscribe((res: TheCompany) => {
   createOuUpdateCompany() {
     if (this.leCompany.LeId == 0) {
       const url = 'https://le-esp.fr/CRM/Create.php';
-      var leCompany2: TheCompany = { LeId: 0, company: this.leCompany.company, descr: this.leCompany.descr };
+      var leCompany2: TheCompany = { LeId: 0, Company: this.leCompany.Company, descr: this.leCompany.descr };
       var done = {
-        company: this.leCompany.company,
+        company: this.leCompany.Company,
         descr: this.leCompany.descr,
       };
           this.apiService.CreateClient(leCompany2).subscribe((res: TheCompany) => {
@@ -76,11 +76,11 @@ this.apiService.DeleteClient(thid).subscribe((res: TheCompany) => {
       const url = 'https://le-esp.fr/CRM/Update.php';
       var UpdDon = {
         LeId: this.leCompany.LeId,
-        company: this.leCompany.company,
+        company: this.leCompany.Company,
         descr: this.leCompany.descr,
       };
     
-     var leCompany2: TheCompany = { LeId: this.leCompany.LeId, company: this.leCompany.company, descr: this.leCompany.descr };
+     var leCompany2: TheCompany = { LeId: this.leCompany.LeId, Company: this.leCompany.Company, descr: this.leCompany.descr };
      this.apiService.UpdateClient(leCompany2).subscribe((res: TheCompany) => {
              this.getData2()
      }     
