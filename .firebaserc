@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "admincrm-ff6cc": {
+      "hosting": {
+        "testClar2": [
+          "admincrm-ff6cc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "admincrm-ff6cc"
+  }
+}

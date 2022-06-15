@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "dist/test-clar2",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions"
+  }
+}
