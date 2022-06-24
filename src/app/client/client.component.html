@@ -1,16 +1,20 @@
 <clr-modal [(clrModalOpen)]="CreEdtUser">
-    <h3 class="modal-title">Edit Client</h3>
+    <h3 class="modal-title">Create / Edit Client</h3>
     <div class="modal-body">
-        <section class="form-block">
-            <div class="form-group ">
-                <label>Company</label>
-                <input type="text" name="company"   [(ngModel)]="leCompany.Company" >
-            </div>
-            <div class="form-group ">  
-                <label>Description</label>
-                <input type="text" name="descr"  [(ngModel)]="leCompany.descr" >
-            </div>
-        </section>
+        <form>
+            <section class="form-block">
+                <div class="form-group ">
+                    <label for="aForm_1">Company</label>
+                    <input type="text" id="aForm_1" name="company"   [(ngModel)]="leCompany.Company" >
+                </div>
+                <br>
+                <div class="form-group ">  
+                    <label for="aForm_2">Description</label>
+                    <input type="text" id="aForm_2" name="descr"  [(ngModel)]="leCompany.descr" >
+                </div>
+            </section>
+        </form>
+       
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="CreEdtUser = false">Cancel</button>
