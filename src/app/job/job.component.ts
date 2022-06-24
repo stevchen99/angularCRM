@@ -15,7 +15,7 @@ export class JobComponent implements OnInit {
   Clients : TheCompany[] = [] 
   Client = {} as TheCompany ;
   CreEdtJob = false;
-  leJob: TheJob = { IdTache: 0, IdCLient: this.Client,  Libelle: '', HeureInit : 0, HeureActu:0 };
+  leJob: TheJob = { IdTache: 0, Client: this.Client,  Libelle: '', HeureInit : 0, HeureActu:0 };
 
   constructor(private jobService: JobServService,
               private clientservice: ClientServService) {}
@@ -52,7 +52,7 @@ public delJob(thid: number): void {
 createOuUpdateJob() {
   if (this.leJob.IdTache == 0) {
    
-    var lejob: TheJob = { IdTache: 0, IdCLient: this.leJob.IdCLient,  Libelle: this.leJob.Libelle, HeureInit : this.leJob.HeureInit, HeureActu :0 };
+    var lejob: TheJob = { IdTache: 0, Client: this.leJob.Client,  Libelle: this.leJob.Libelle, HeureInit : this.leJob.HeureInit, HeureActu :0 };
    console.log(lejob)
     this.jobService.CreateJob(lejob).subscribe((res: TheJob) => {
       this.getJobs()
