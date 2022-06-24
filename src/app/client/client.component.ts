@@ -12,27 +12,17 @@ import { TheCompany } from './the-company';
 })
 
 export class ClientComponent implements OnInit {
-  selected: any[] | undefined;
-  public dataClient: any = [];
+  selected: any[] | undefined; 
   dataclient2: TheCompany[] = []
   CreEdtUser = false;
   leCompany: TheCompany = { LeId: 0, Company: '', descr: '' };
 
   constructor(private http: HttpClient, private apiService: ClientServService) { }
 
-  ngOnInit(): void {
-    this.getData();
+  ngOnInit(): void {   
     this.getData2();
   }
 
-
-  getData() {
-    const url = 'https://le-esp.fr/CRM/Read.php';
-    this.http.get(url).subscribe((res) => {
-      this.dataClient = res;
-      //8 console.log(this.dataClient);
-    });
-  }
 
   getData2() {
     this.apiService.getClient().subscribe((tempo: TheCompany[]) => {
