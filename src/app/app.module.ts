@@ -15,6 +15,7 @@ import { JobServService } from './job/job-serv.service';
 
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import { HistoComponent } from './histo/histo.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDIjSWS8wF2vcRu45G8M1WiA0TK8l4PHaA",
@@ -31,7 +32,8 @@ const firebaseConfig = {
     AppComponent,
     TbdComponent,
     ClientComponent,
-    JobComponent
+    JobComponent,
+    HistoComponent
   ],
   imports: [
     BrowserModule, 

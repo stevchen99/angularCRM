@@ -1,0 +1,27 @@
+<clr-datagrid>
+    <clr-dg-column>Histo ID</clr-dg-column>
+    <clr-dg-column>Taches</clr-dg-column>   
+    <clr-dg-column>Heure Affect</clr-dg-column>   
+    <clr-dg-column>Affect date</clr-dg-column>
+    
+  
+    <clr-dg-row *clrDgItems="let histo of Histos" [clrDgItem]="histo">
+      <clr-dg-cell>{{ histo.IdHisto }}</clr-dg-cell>      
+      <clr-dg-cell>{{ histo.Taches }}</clr-dg-cell>
+      <clr-dg-cell>{{ histo.HeureAffect }}</clr-dg-cell>     
+      <clr-dg-cell>{{ histo.DateAffect | date: 'dd/MM/yyyy' }}</clr-dg-cell>
+  
+    
+    </clr-dg-row>
+  
+    <clr-dg-placeholder>We couldn't load any launches</clr-dg-placeholder>
+  
+    <clr-dg-footer>
+      <clr-dg-pagination
+        #pagination
+        [clrDgPageSize]="10" 
+  
+      
+      ></clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
