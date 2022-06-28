@@ -1,20 +1,19 @@
 <clr-modal [(clrModalOpen)]="CreEdtUser">
     <h3 class="modal-title">Create / Edit Client</h3>
     <div class="modal-body">
-        <form>
-            <section class="form-block">
-                <div class="form-group ">
-                    <label for="aForm_1">Company</label>
-                    <input type="text" id="aForm_1" name="company"   [(ngModel)]="leCompany.Company" >
-                </div>
-                <br>
-                <div class="form-group ">  
-                    <label for="aForm_2">Description</label>
-                    <input type="text" id="aForm_2" name="descr"  [(ngModel)]="leCompany.descr" >
-                </div>
-            </section>
+        <form clrForm clrLayout="horizontal">
+            <clr-input-container>
+                <label for="aForm_1">Company</label>
+                <input clrInput id="aForm_1" name="company" [(ngModel)]="leCompany.Company">
+            </clr-input-container>
+
+            <clr-input-container>
+                <label for="aForm_2">Description</label>
+                <input clrInput id="aForm_2" name="descr" [(ngModel)]="leCompany.descr">
+            </clr-input-container>
+
         </form>
-       
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="CreEdtUser = false">Cancel</button>
@@ -29,27 +28,26 @@
     <clr-dg-column>Libelle</clr-dg-column>
     <clr-dg-column>Descr</clr-dg-column>
     <clr-dg-column>Creation date</clr-dg-column>
-    <clr-dg-column>Edit</clr-dg-column> 
-    
-    <clr-dg-row *clrDgItems="let client of dataclient2" [clrDgItem]="client">    
+    <clr-dg-column>Edit</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let client of dataclient2" [clrDgItem]="client">
         <clr-dg-cell>{{client.Id}}</clr-dg-cell>
         <clr-dg-cell>{{client.Company}}</clr-dg-cell>
-        <clr-dg-cell>{{client.Descr}}</clr-dg-cell> 
+        <clr-dg-cell>{{client.Descr}}</clr-dg-cell>
         <clr-dg-cell>{{client.Date | date :'dd/MM/yyyy'}}</clr-dg-cell>
 
         <clr-dg-cell>
-            <button (click)="edtClient(client.Id,client.Company,client.Descr)" class="btn btn-sm btn-success">Edit</button>
+            <button (click)="edtClient(client.Id,client.Company,client.Descr)"
+                class="btn btn-sm btn-success">Edit</button>
             <button (click)="delClient(client.Id)" class="btn btn-sm btn-success">Del</button>
-          </clr-dg-cell>      
-    </clr-dg-row> 
+        </clr-dg-cell>
+    </clr-dg-row>
 
     <clr-dg-placeholder>We couldn't load any launches</clr-dg-placeholder>
 
     <clr-dg-footer>
-     
-        
-      </clr-dg-footer>
 
-  </clr-datagrid>
 
-  Selected users: <span *ngFor="let user of selected">{{user.Company}}</span>
+    </clr-dg-footer>
+
+</clr-datagrid>
