@@ -17,6 +17,9 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { HistoComponent } from './histo/histo.component';
 
+import { NgChartsModule } from 'ng2-charts';
+import { DatePipe } from '@angular/common';
+
 const firebaseConfig = {
   apiKey: "AIzaSyDIjSWS8wF2vcRu45G8M1WiA0TK8l4PHaA",
   authDomain: "admincrm-ff6cc.firebaseapp.com",
@@ -43,10 +46,11 @@ const firebaseConfig = {
     ClarityModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    NgChartsModule
   
 
   ],
-  providers: [JobServService],
+  providers: [JobServService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { } 

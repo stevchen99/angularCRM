@@ -39,7 +39,6 @@ export class ClientComponent implements OnInit {
     this.leCompany.descr = TheDescr;
 
     this.CreEdtUser = true;
-
   }
 
   public crtClient(): void {
